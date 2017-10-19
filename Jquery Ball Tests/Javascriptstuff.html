@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	
+	body{
+	text-align: center;
+	}
+
+	button{
+		margin-top: 20px;
+
+	}
+
+	.dicediv h1{
+	color: red;
+	font-family: sans-serif;
+	display: inline-block;
+	padding: 15px;
+	padding-left: 25px;
+	padding-right: 25px;
+	margin: 5px;
+	background-color: black;
+	border-radius: 10px;
+	}
+
+	.title{
+		font-family: sans-serif;
+		font-size: 35px;
+	}
+
+	.total{
+		padding: 20px;
+		border-radius: 10px;
+		display: inline-block;
+		background-color: red;
+		font-family: sans-serif;
+		font-size: 45px;
+	}
+
+	.colorcube{
+		padding: 70px;
+		border-radius: 30px;
+		display: inline-block;
+		transition-duration: 3s;
+	}
+
+	.animalimg{
+		width: 300px;
+	}
+
+	.catgif{
+		display: none;
+	}
+
+
+	</style>
+</head>
+<body>
+	
+
+<h1 class="title">DICE ROLLING</h1>
+<div class="dicediv">
+<h1 id="diceBox1"></h1>
+<h1 id="diceBox2"></h1>
+<h1 id="diceBox3"></h1>
+<h1 id="diceBox4"></h1>
+<h1 id="diceBox5"></h1>
+<h1 id="diceBox6"></h1>
+</div>
+<button id="rollDice">Click to Roll!</button>
+<h1 class="title">YOUR TOTAL IS</h1>
+<h1 class="total" id="diceTotal"></h1>
+<hr>
+
+
+<input id="backgroundInput" type="text">
+<button id="backgroundButton">Type a Color Then Click!</button>
+<hr>
+<div class="colorcube"></div>
+<hr>
+
+
+<div id="imageDiv">
+	<input id="imageInput">
+	<button id="animalButton">Type an Animal Then Click!</button>
+	<hr>
+	<img class="animalimg" id="imgAnimal" src="#">
+</div>
+<hr>
+
+
+<h1 class="title">ARRANGE THE NUMBERS 1 - 6 IN THE TEXT BOXES</h1>
+<input type="text" class="smallinput" id="inputCode1">
+<input type="text" class="smallinput" id="inputCode2">
+<input type="text" class="smallinput" id="inputCode3">
+<input type="text" class="smallinput" id="inputCode4">
+<input type="text" class="smallinput" id="inputCode5">
+<input type="text" class="smallinput" id="inputCode6">
+<button id="codeButton">Click to test</button>
+<hr>
+<img class="catgif" id="catGif" src="img/catcat.gif">
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+
+	(function(){
+
+		function randomRoller(min, max){
+			return Math.floor((Math.random() * max) + min);
+		}
+
+		function total(){
+		var dice1 = $('#diceBox1').text();
+		var dice2 = $('#diceBox2').text();
+		var dice3 = $('#diceBox3').text();
+		var dice4 = $('#diceBox4').text();
+		var dice5 = $('#diceBox5').text();
+		var dice6 = $('#diceBox6').text();
+		var total = 
+			parseInt(dice1) + parseInt(dice2) + 
+			parseInt(dice3) + parseInt(dice4) + 
+			parseInt(dice5) + parseInt(dice6);
+
+		return total;
+		}
+
+		$('#rollDice').click(function(){
+			$('#diceBox1').text(randomRoller(1, 6));
+			$('#diceBox2').text(randomRoller(1, 6));
+			$('#diceBox3').text(randomRoller(1, 6));
+			$('#diceBox4').text(randomRoller(1, 6));
+			$('#diceBox5').text(randomRoller(1, 6));
+			$('#diceBox6').text(randomRoller(1, 6));
+
+			$('#diceTotal').text(total());
+		})
+
+		function background(){
+			var bgInput = $('#backgroundInput').val();
+			$('.colorcube').css('background-color' , bgInput);
+			console.log(bgInput);
+		}
+		$('#backgroundButton').click(function(){
+			background();
+		})
+
+		function switchFunction(){
+			var input = $('#imageInput').val();
+			var image = '#imgAnimal';
+			switch(input){
+				case 'cat':
+				$(image).attr("src","img/cat.jpg");
+				break;
+				case 'dog':
+				$(image).attr("src","img/dog.jpg");
+				break;
+				case 'possum':
+				$(image).attr("src","img/possum.jpg");
+				break;
+			}
+		}
+		$('#animalButton').click(function(){
+			switchFunction();
+		})
+
+		function codeBreak(){
+			var code1 = $('#inputCode1').val();
+			var code2 = $('#inputCode2').val();
+			var code3 = $('#inputCode3').val();
+			var code4 = $('#inputCode4').val();
+			var code5 = $('#inputCode5').val();
+			var code6 = $('#inputCode6').val();
+
+			if (code1 == 1){
+				$('#inputCode1').css('background-color' , 'lightgreen');
+			} else {
+				$('#inputCode1').css('background-color' , 'pink');
+			}
+
+			if (code2 == 5){
+				$('#inputCode2').css('background-color' , 'lightgreen');
+			} else {
+				$('#inputCode2').css('background-color' , 'pink');
+			}	
+
+			if (code3 == 4){
+				$('#inputCode3').css('background-color' , 'lightgreen');
+			} else {
+				$('#inputCode3').css('background-color' , 'pink');
+			}	
+
+			if (code4 == 2){
+				$('#inputCode4').css('background-color' , 'lightgreen');
+			} else {
+				$('#inputCode4').css('background-color' , 'pink');
+			}	
+
+			if (code5 == 6){
+				$('#inputCode5').css('background-color' , 'lightgreen');
+			} else {
+				$('#inputCode5').css('background-color' , 'pink');
+			}	
+
+			if (code6 == 3){
+				$('#inputCode6').css('background-color' , 'lightgreen');
+			} else {
+				$('#inputCode6').css('background-color' , 'pink');
+			}
+
+			if ((code1 == 1) && (code2 == 5) && (code3 == 4) && (code4 == 2) && (code5 == 6) && (code6 ==3)){
+				$('#catGif').fadeIn(2000);
+			}											
+		}
+		$('#codeButton').click(function(){
+			codeBreak();
+		})
+
+
+	})();
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	
+	#reddiv{
+		padding: 100px;
+		width: 100px;
+		border-radius: 45px;
+	}
+	
+	</style>
+</head>
+<body>
+
+    <div id="reddiv"><h1>HI</h1></div>
+    <p id="wallP"></p>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+
+
+
+
+    var objectRed = {
+        background: 'background-color',
+        border: 'border-color' ,
+        color: 'color' ,
+        red: 'red' ,
+        blue: 'blue' ,
+        green: 'green'
+    }
+
+    console.log(objectRed);
+
+    $('#reddiv').css(objectRed.background , objectRed.red);
+    $('#reddiv').css(objectRed.border , objectRed.blue);
+    $('#reddiv').css(objectRed.color , objectRed.green);
+
+    var stuff ={
+        bob: 'red'
+    }
+    stuff.things = "goats";
+
+    delete stuff.bob;
+    console.log(stuff);
+
+    var evilArray = ["Satan", "Umaru", "Spooky Ghosts"];
+    evilArray.push("Zombies");
+    evilArray.pop();
+
+    console.log(evilArray);
+
+    function coolFunction(a, b, c){
+        alert(a + b + c);
+    }
+
+    coolFunction(1, 2 ,3);
+
+    function calculateArea(width, height){
+        var area = width * height;
+        return area;
+    }
+    
+// Stuff
+    var valObject = {
+        firstValue: 10,
+        secondValue: 5,
+    }
+    var wallOne = calculateArea(valObject.firstValue, valObject.secondValue);
+    var wallTwo = calculateArea(5, 10);
+
+    $('#wallP').text(wallOne + wallTwo);
+
+
+
+
+</script>
+</body>
+</html>

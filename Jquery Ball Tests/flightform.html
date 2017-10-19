@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Flight Form</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		.expandbutton{
+			cursor: pointer;
+			background-color: #89EB17;
+			padding: 15px;
+			border-radius: 90px;
+			width: 50px;
+			height: 50px;
+			text-align: center;
+			transition-duration: 0.7s;
+
+		}
+
+		.expandbutton:hover{
+			width: 200px;
+		}
+
+		.booktrip{
+			display: inline-block;
+			margin: 0px;
+			font-size: 20px;
+			font-family: sans-serif;
+			font-weight: bold;
+			opacity: 0;
+			transition-delay: 0.4s;
+			transition-duration: 0.7s;
+		}
+
+		h3{
+			font-size: 12px;
+			font-family: sans-serif;
+			font-weight: bold;
+			margin: 0px;
+			margin-top: 12px;
+			margin-bottom: 0px;
+		}
+
+		.formdiv{
+			margin: 0 auto;
+			text-align: center;
+			background-color: #D5EBC7;
+			display: none;
+			width: 400px;
+			height: 525px;
+			padding: 25px;
+			border-radius: 20px;
+		}
+
+		.submit{
+			float: right;
+		}
+
+		.formlogo{
+			font-size: 80px;
+			color: green;
+		}
+
+		input{
+			width: 80%;
+			margin-bottom: 2px;
+		}
+
+		.submit{
+			width: 25%;
+			height: 40px;
+			background-color: #D5EBC7;
+			border-radius: 30px;
+			border: 0px;
+			font-size: 15px;
+			font-family: sans-serif;
+			font-weight: bolder;
+			border: 3px solid green;
+		}
+
+		.titlep{
+			font-family: sans-serif;
+			font-size: 40px;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="expandbutton" id="expandButton"><i class="fa fa-plane fa-3x" aria-hidden="true"></i>
+		<p class="booktrip" id="bookTrip">Book A Trip</p>
+	</div>
+
+	<div class="formdiv" id="formDiv">
+		<p class="titlep">Book a Trip<i class="formlogo fa fa-plane" aria-hidden="true"></i></p>
+
+		<h3>First Name</h3>
+		<input type="name">
+
+		<h3>Last Name</h3>
+		<input type="name">
+		<hr>
+
+		<h3>From</h3>
+		<input type="text" list="Locations" placeholder="Select Airport" />
+			<datalist id="Locations">
+			  <option>Wellington</option>
+			  <option>Auckland</option>
+			  <option>Christchurch</option>
+			  <option>Napier</option>
+			</datalist>
+
+		<h3>To</h3>
+		<input type="text" list="Locations" placeholder="Select Airport" />
+			<datalist id="Locations">
+			  <option>Wellington</option>
+			  <option>Auckland</option>
+			  <option>Christchurch</option>
+			  <option>Napier</option>
+			</datalist>
+
+		<h3>Date</h3>
+		<input type="Date">
+
+		<h3>Type of ticket</h3>
+			<input type="text" list="Class" placeholder="Select Travel Class" />
+			<datalist id="Class">
+			  <option>Economy</option>
+			  <option>Business</option>
+			  <option>First Class</option>
+			  <option>Premium</option>
+			</datalist>
+
+			<input type="text" list="Age" placeholder="Select Travel Class" />
+			<datalist id="Age">
+			  <option>Adult</option>
+			  <option>Student</option>
+			  <option>Senior</option>
+			  <option>Child</option>
+			</datalist>
+			 <input type="number" min="0" max="10">
+			 <hr>
+			 <input class="submit" type="submit">
+
+
+	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+	$('#expandButton').hover(function(){
+		$('#bookTrip').css('opacity' , '1');
+	})
+
+	$('#expandButton').click(function(){
+		$('#formDiv').fadeIn(300);
+		$(this).fadeOut(300);
+	})
+
+</script>
+</body>
+</html>

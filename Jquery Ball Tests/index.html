@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+<div class="wrapper">
+<div class="redball" id="ball"></div>
+
+
+</div>
+<div class="bluewrapper">
+	<div class="blueball" id="blue"></div>
+
+</div>
+
+<div class="objectwrapper">
+	<p id="name"></p>
+	<p id="age"></p>
+	<p id="location"></p>
+	<p id="nationality"></p>
+	<p id="occupation"></p>
+
+<div id="randomWrapper">
+	<p>Coolness level: </p><p id="random"></p>
+</div>
+
+
+</div>
+<!-- WRAPPER END -->
+
+<!-- JAVASCRIPT -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<script>
+
+//OBJECT
+
+var myObject = {
+	name: 'Louis',
+	age: 23,
+	location: 'Karori',
+	occupation: 'Student',
+	nationality: 'Irish / Dutch'
+}
+console.log(myObject.name)
+
+$('#name').text(myObject.name);
+$('#age').text(myObject.age);
+$('#location').text(myObject.location);
+$('#occupation').text(myObject.occupation);
+$('#nationality').text(myObject.nationality);
+
+//BLUE BALL THING
+function blueBallfunction(minsize){
+	var ballSize = minsize;
+	$('#blue').css('width' , ballSize + 'px');
+	$('#blue').css('height' , ballSize + 'px');
+
+	$('#blue').click(function(){
+		ballSize++
+		console.log(ballSize);
+	$('#blue').css('width' , ballSize + 'px');
+	$('#blue').css('height' , ballSize + 'px');
+
+	})
+
+}
+
+
+blueBallfunction(40);
+
+//RED BALL THING
+
+	var ball = $('#ball');
+
+	ball.click(function(){
+		ball.css('height' , '600px');
+
+		ball.click(function(){
+		ball.css('height' , '70px');
+		ball.css('bottom' , '20px');
+
+			ball.click(function(){
+			ball.css('width' , '600px');
+
+				ball.click(function(){
+				ball.css('width' , '70px');
+				ball.css('right' , '20px');
+				})
+			})
+		})	
+	})
+
+	function getRandomArbitrary(min, max) {
+ 	return Math.random() * (max - min) + min;
+}
+
+	$('#random').text(getRandomArbitrary(0,10));
+
+
+</script>
+<!-- JAVASCRIPT END -->
+
+</body>
+</html>
